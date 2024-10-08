@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+        
         public int Tokens = 3;
         static void Main(string[] args)
         {
@@ -9,20 +10,20 @@
             Console.WriteLine("\tWelcome to the game of doors!");
             Progression(ConsoleKey.Enter);
             Console.WriteLine("\tin this game you will choose from a series of doors");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tyou will choose from these doors to enter.");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tBut you should be very carefull as these doors will also contain your fate");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tNow you must be carefull as anything can be behind these doors and some may cost you your life");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tthrought the game you will have 3 tokens that will tell you where these doors lead and whats behind them");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tyou have to Be carefull as you will only have 3 of these tokens so don't use them too early,");
             Console.WriteLine("\tbut if you save them for to late it may lead to your death");
-            Progression(ConsoleKey.Enter);
+            Thread.Sleep(2000);
             Console.WriteLine("\tAre you ready to Progress???");
-            Console.WriteLine("\t\t|Yes|No:");
+            Console.WriteLine("\t\t|Yes|No|");
             ReadyCheck();
         }
         static void Start()
@@ -79,17 +80,20 @@
             }
             static void Death()
             {
-                Console.WriteLine("\tsorry but unfortunitly you have made a wrong decision");
+                Console.WriteLine("\tsorry but unfortunitly you have made the wrong decision");
                 Thread.Sleep(4000);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("\t\tYOU HAVE DIED");
                 Thread.Sleep(2000);
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("\twould you like to try again?");
+                Console.WriteLine("\t\t|Yes|No|");
                 string TryAgain = Console.ReadLine();
                 if (TryAgain == "Yes" || TryAgain == "yes" || TryAgain == "YES")
                 {
-
+                    Console.WriteLine("\tThen Let's try this again shall we");
+                    Thread.Sleep(3000);
+                    Start();
                 }
                 if (TryAgain == "No" || TryAgain == "no" || TryAgain == "NO")
                 {
@@ -97,7 +101,7 @@
                 }
 
             }
-
+            
 
 
 
