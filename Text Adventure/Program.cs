@@ -3,7 +3,7 @@
     internal class Program
     {
         public int Tokens = 3;
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\tWelcome to the game of doors!");
@@ -25,40 +25,6 @@
             Console.WriteLine("\t\t|Yes|No|");
             ReadyCheck();
         }
-        static void Start()
-        {
-            Door.RandomDoor();
-            Thread.Sleep(3000);
-            Console.WriteLine("\tyou see three doors in front of you");
-            Console.Write("\tthe door on the left is a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorOneColor);
-            Console.Write(Door.DoorOneColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(" Door with a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimOneColor);
-            Console.Write(Door.TrimOneColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" Trim");
-            Console.Write("\tthe door in the middle is a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorTwoColor);
-            Console.Write(Door.DoorTwoColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(" Door with a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimTwoColor);
-            Console.Write(Door.TrimTwoColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" Trim");
-            Console.Write("\tthe door on the left is a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorThreeColor);
-            Console.Write(Door.DoorThreeColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.Write(" Door with a ");
-            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimThreeColor);
-            Console.Write(Door.TrimThreeColor);
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" Trim");
-        }
-
         static void Progression(ConsoleKey progression_Key)
         {
             Console.WriteLine($"\t\tPress {progression_Key} to progress...");
@@ -90,6 +56,14 @@
                 Console.WriteLine("\t\tINVALID INPUT TRY AGAIN");
                 ReadyCheck();
             }
+        }
+            public static void LifeOrDeath()
+            {
+            Random random = new Random();
+            int DoorOneLifeOrDeath = random.Next(0, 5);
+            int DoorTwoLifeOrDeath = random.Next(0, 5);
+            int DoorThreeLifeOrDeath = random.Next(0, 5);
+        }
             static void Death()
             {
                 Console.WriteLine("\tsorry but unfortunitly you have made the wrong decision");
@@ -111,13 +85,56 @@
                 {
 
                 }
-
             }
-            
-
-
-
+        static void Doors()
+        {
+            Console.Write("\tthe door on the left is a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorOneColor);
+            Console.Write(Door.DoorOneColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Door with a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimOneColor);
+            Console.Write(Door.TrimOneColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Trim");
+            Console.Write("\tthe door in the middle is a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorTwoColor);
+            Console.Write(Door.DoorTwoColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Door with a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimTwoColor);
+            Console.Write(Door.TrimTwoColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Trim");
+            Console.Write("\tthe door on the left is a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorThreeColor);
+            Console.Write(Door.DoorThreeColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(" Door with a ");
+            Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.TrimThreeColor);
+            Console.Write(Door.TrimThreeColor);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Trim");
+            Console.WriteLine("\t\t\tPlease select Doors");
+            Console.WriteLine("\t\t\t|Left|Middle|Right|");
+        }
+        static void Start()
+        {
+            Door.RandomDoor();
+            Thread.Sleep(3000);
+            Console.WriteLine("\tyou see three doors in front of you");
+            Doors();
         }
     }
 }
+
+
+
+
+
+
+        
+    
+
+
 
