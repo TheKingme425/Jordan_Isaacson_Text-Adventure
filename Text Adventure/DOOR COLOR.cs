@@ -218,27 +218,27 @@
         {
             if (DoorTwo == 8)
             {
-                 DoorOneColor = "Brown";
+                DoorOneColor = "DarkRed";
             }
             if (DoorTwo == 8)
             {
-                 DoorTwoColor = "Brown";
+                 DoorTwoColor = "DarkRed";
             }
             if (DoorThree == 8)
             {
-                 DoorThreeColor = "Brown";
+                 DoorThreeColor = "DarkRed";
             }
             if (TrimOne == 8)
             {
-                 TrimOneColor = "Brown";
+                 TrimOneColor = "DarkRed";
             }
             if (TrimTwo == 8)
             {
-                 TrimTwoColor = "Brown";
+                 TrimTwoColor = "DarkRed";
             }
             if (TrimThree == 8)
             {
-                 TrimThreeColor = "Brown";
+                 TrimThreeColor = "DarkRed";
             }
         }
 
