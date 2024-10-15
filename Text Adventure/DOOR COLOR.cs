@@ -13,6 +13,7 @@
         int DoorOne = random.Next(0, 11);
         int TrimOne = random.Next(0, 11);
         int DoorTwo = random.Next(0, 11);
+        int DoorTwo = random.Next(0, 11);
         int TrimTwo = random.Next(0, 11);
         int DoorThree = random.Next(0, 11);
         int TrimThree = random.Next(0, 11);
