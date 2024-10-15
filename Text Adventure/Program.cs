@@ -1,16 +1,22 @@
-﻿using System.Security.Cryptography;
+﻿using System.Dynamic;
+using System.Security.Cryptography;
 
 namespace Text_Adventure
 {
     internal class Program
     {
+        // defined variables
         public static string LifeOrDeathD1 = "LIFE";
         public static string LifeOrDeathD2 = "LIFE";
         public static string LifeOrDeathD3 = "LIFE";
         public static int Tokens = 3;
         public static int DoorsEntered = 0;
+
         public static void Main(string[] args)
         {
+            //int mynumb = Convert.ToInt32(Console.ReadLine());
+
+            // introduction 
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\tWelcome to the game of doors!");
             Progression(ConsoleKey.Enter);
@@ -42,6 +48,7 @@ namespace Text_Adventure
             } while (!Spacebar_activated);
         }
 
+        //Checks if they are ready for the next room
         static void ReadyCheck()
         {
             Console.WriteLine("\tAre you ready to Progress???");
@@ -62,12 +69,13 @@ namespace Text_Adventure
                 ReadyCheck();
             }
         }
+        //Decides their fate with random veriables
         public static void LifeOrDeath()
         {
             Random random = new Random();
-            int DoorOneLifeOrDeath = random.Next(0, 4);
-            int DoorTwoLifeOrDeath = random.Next(0, 4);
-            int DoorThreeLifeOrDeath = random.Next(0, 4);
+            int DoorOneLifeOrDeath = random.Next(0, 6);
+            int DoorTwoLifeOrDeath = random.Next(0, 6);
+            int DoorThreeLifeOrDeath = random.Next(0, 6);
             if (DoorOneLifeOrDeath == 1 && DoorTwoLifeOrDeath == 1 && DoorThreeLifeOrDeath == 1)
             {
                 LifeOrDeath();
@@ -104,7 +112,46 @@ namespace Text_Adventure
                 }
             }
         }
-        
+
+        /*
+         * int[] array = mew int[5]
+         * string[] weekdays = ["sun", "mon", "Tue", "wed", "thu", "fri", "Sat"];
+         * 
+         * struct Emplyee 
+         * {
+         * public int id;
+         * 
+         * public void getID(int id) 
+         * {
+         * Console.WriteLine("Employee Id: " + id);
+         * }
+         * }
+        */
+        static void Restart()
+        {
+            Console.WriteLine("\twould you like to try again?");
+            Console.WriteLine("\t\t|Yes|No|");
+            string TryAgain = Console.ReadLine()!;
+            if (TryAgain == "Yes" || TryAgain == "yes" || TryAgain == "YES")
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.Clear();
+                Thread.Sleep(1000);
+                Console.WriteLine("\tThen Let's try this again shall we");
+                Thread.Sleep(3000);
+                Start();
+            }
+            else if (TryAgain == "No" || TryAgain == "no" || TryAgain == "NO")
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Invalid answer");
+                Thread.Sleep(2000);
+                Restart();
+            }
+        }
             static void Death()
             {
                 Console.WriteLine("\tsorry but unfortunitly you have made the wrong decision");
@@ -113,24 +160,8 @@ namespace Text_Adventure
                 Console.Clear();
                 Console.WriteLine("\t\tYOU HAVE DIED");
                 Thread.Sleep(3000);
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("\twould you like to try again?");
-                Console.WriteLine("\t\t|Yes|No|");
-                string TryAgain = Console.ReadLine()!;
-                if (TryAgain == "Yes" || TryAgain == "yes" || TryAgain == "YES")
-                {
-                    Console.BackgroundColor = ConsoleColor.Black;
-                    Console.Clear();
-                    Thread.Sleep(1000);
-                    Console.WriteLine("\tThen Let's try this again shall we");
-                    Thread.Sleep(3000);
-                    Start();
-                }
-                if (TryAgain == "No" || TryAgain == "no" || TryAgain == "NO")
-                {
-                 
-                }
-            }
+                Restart();
+        }
         static void Doors()
         {
             Console.WriteLine("\tyou see three doors in front of you");
@@ -224,7 +255,7 @@ namespace Text_Adventure
             }
             else if (Condition == "middle")
             {
-                if (LifeOrDeathD1 == "LIFE")
+                if (LifeOrDeathD2 == "LIFE")
                 {
                     int LevelsLeft = 10 - DoorsEntered;
                     Console.WriteLine("Congrats for passing Level " + DoorsEntered + " " + LevelsLeft + " Rooms left to go");
@@ -238,7 +269,7 @@ namespace Text_Adventure
             }
             else if (Condition == "right")
             {
-                if (LifeOrDeathD1 == "LIFE")
+                if (LifeOrDeathD3 == "LIFE")
                 { 
                     int LevelsLeft = 10 - DoorsEntered;
                     Console.WriteLine("Congrats for passing Level " + DoorsEntered + " " + LevelsLeft + " Rooms left to go");

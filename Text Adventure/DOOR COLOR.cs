@@ -1,5 +1,6 @@
 ﻿public class Door
 {
+    //All of this is an obomination dont bother looking at this. 
     public static string DoorOneColor = "White";
     public static string DoorTwoColor = "White";
     public static string DoorThreeColor = "White";
@@ -13,7 +14,6 @@
         int DoorOne = random.Next(0, 11);
         int TrimOne = random.Next(0, 11);
         int DoorTwo = random.Next(0, 11);
-        int DoorTwo = random.Next(0, 11);
         int TrimTwo = random.Next(0, 11);
         int DoorThree = random.Next(0, 11);
         int TrimThree = random.Next(0, 11);
@@ -21,7 +21,7 @@
 
         if (DoorOne == 1 || DoorTwo == 1 || DoorThree == 1 || TrimOne == 1 || TrimTwo == 1 || TrimThree == 1)
         {
-            if (DoorTwo == 1)
+            if (DoorOne == 1)
             {
                 DoorOneColor = "Red";
             }
@@ -77,7 +77,7 @@
 
          if (DoorOne == 3 || DoorTwo == 3 || DoorThree == 3 || TrimOne == 3 || TrimTwo == 3 || TrimThree == 3)
         {
-            if (DoorTwo == 3)
+            if (DoorOne == 3)
             {
                  DoorOneColor = "Yellow";
             }
@@ -105,7 +105,7 @@
 
          if (DoorOne == 4 || DoorTwo == 4 || DoorThree == 4 || TrimOne == 4 || TrimTwo == 4 || TrimThree == 4)
         {
-            if (DoorTwo == 4)
+            if (DoorOne == 4)
             {
                  DoorOneColor = "Green";
             }
@@ -133,7 +133,7 @@
 
          if (DoorOne == 5 || DoorTwo == 5 || DoorThree == 5 || TrimOne == 5 || TrimTwo == 5 || TrimThree == 5)
         {
-            if (DoorTwo == 5)
+            if (DoorOne == 5)
             {
                  DoorOneColor = "Magenta";
             }
@@ -161,7 +161,7 @@
 
          if (DoorOne == 6 || DoorTwo == 6 || DoorThree == 6 || TrimOne == 6 || TrimTwo == 6 || TrimThree == 6)
         {
-            if (DoorTwo == 6)
+            if (DoorOne == 6)
             {
                  DoorOneColor = "Gray";
             }
@@ -189,7 +189,7 @@
 
          if (DoorOne == 7 || DoorTwo == 7 || DoorThree == 7 || TrimOne == 7 || TrimTwo == 7 || TrimThree == 7)
         {
-            if (DoorTwo == 7)
+            if (DoorOne == 7)
             {
                  DoorOneColor = "White";
             }
@@ -217,7 +217,7 @@
 
          if (DoorOne == 8 || DoorTwo == 8 || DoorThree == 8 || TrimOne == 8 || TrimTwo == 8 || TrimThree == 8)
         {
-            if (DoorTwo == 8)
+            if (DoorOne == 8)
             {
                 DoorOneColor = "DarkRed";
             }
@@ -245,7 +245,7 @@
 
          if (DoorOne == 9 || DoorTwo == 9 || DoorThree == 9 || TrimOne == 9 || TrimTwo == 9 || TrimThree == 9)
         {
-            if (DoorTwo == 9)
+            if (DoorOne == 9)
             {
                  DoorOneColor = "DarkBlue";
             }
@@ -273,7 +273,7 @@
 
          if (DoorOne == 10 || DoorTwo == 10 || DoorThree == 10 || TrimOne == 10 || TrimTwo == 10 || TrimThree == 10)
         {
-            if (DoorTwo == 10)
+            if (DoorOne == 10)
             {
                  DoorOneColor = "Cyan";
             }
