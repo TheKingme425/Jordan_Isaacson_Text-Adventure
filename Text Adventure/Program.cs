@@ -26,7 +26,7 @@ namespace Text_Adventure
             Thread.Sleep(2000);
             Console.WriteLine("\tBut you should be very carefull as these doors will also contain your fate");
             Thread.Sleep(2000);
-            Console.WriteLine("\tMake it through 10 doors and you will survive");
+            Console.WriteLine("\tMake it to floor 10 and you will survive");
             Thread.Sleep(2000);
             Console.WriteLine("\tNow you must be carefull as anything can be behind these doors and some may cost you your life");
             Thread.Sleep(2000);
@@ -73,9 +73,9 @@ namespace Text_Adventure
         public static void LifeOrDeath()
         {
             Random random = new Random();
-            int DoorOneLifeOrDeath = random.Next(0, 6);
-            int DoorTwoLifeOrDeath = random.Next(0, 6);
-            int DoorThreeLifeOrDeath = random.Next(0, 6);
+            int DoorOneLifeOrDeath = random.Next(0, 5);
+            int DoorTwoLifeOrDeath = random.Next(0, 5);
+            int DoorThreeLifeOrDeath = random.Next(0, 5);
             if (DoorOneLifeOrDeath == 1 && DoorTwoLifeOrDeath == 1 && DoorThreeLifeOrDeath == 1)
             {
                 LifeOrDeath();
@@ -134,6 +134,8 @@ namespace Text_Adventure
             string TryAgain = Console.ReadLine()!;
             if (TryAgain == "Yes" || TryAgain == "yes" || TryAgain == "YES")
             {
+                DoorsEntered = 0;
+                Tokens = 3;
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
                 Thread.Sleep(1000);
@@ -143,7 +145,7 @@ namespace Text_Adventure
             }
             else if (TryAgain == "No" || TryAgain == "no" || TryAgain == "NO")
             {
-
+               
             }
             else
             {
@@ -164,6 +166,8 @@ namespace Text_Adventure
         }
         static void Doors()
         {
+            Progression(ConsoleKey.Enter);
+            Console.Clear();
             Console.WriteLine("\tyou see three doors in front of you");
             Thread.Sleep(2000);
             Console.Write("\tthe door on the left is a ");
@@ -186,7 +190,7 @@ namespace Text_Adventure
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine(" Trim");
             Thread.Sleep(1000);
-            Console.Write("\tthe door on the left is a ");
+            Console.Write("\tthe door on the right is a ");
             Console.ForegroundColor = Enum.Parse<ConsoleColor>(Door.DoorThreeColor);
             Console.Write(Door.DoorThreeColor);
             Console.ForegroundColor = ConsoleColor.White;
@@ -203,6 +207,7 @@ namespace Text_Adventure
             if (DoorsEntered == 10)
             {
                 Console.WriteLine("\t\t\tCongrats you win");
+                Restart();
             }
             else
             {
@@ -233,13 +238,8 @@ namespace Text_Adventure
                 Console.WriteLine("\t\t\tYou Have " + Tokens + " Tokens Left");
                 DoorOpenCheck();
             }
-            else if (Tokens == 0)
-            {
-                Console.WriteLine("You are out of tokens, try again");
-                DoorOpenCheck();
-            }
 
-            if (Condition == "left")
+            else if (Condition == "left")
             {
                 if (LifeOrDeathD1 == "LIFE")
                 {
@@ -247,6 +247,7 @@ namespace Text_Adventure
                     Console.WriteLine("Congrats for passing Level " + DoorsEntered + " " + LevelsLeft + " Rooms left to go");
                     DoorsEntered = DoorsEntered + 1;
                     Win();
+                    ReadyCheck();
                 }
                 else
                 {
@@ -261,6 +262,7 @@ namespace Text_Adventure
                     Console.WriteLine("Congrats for passing Level " + DoorsEntered + " " + LevelsLeft + " Rooms left to go");
                     DoorsEntered = DoorsEntered + 1;
                     Win();
+                    ReadyCheck();
                 }
                 else
                 {
@@ -275,11 +277,17 @@ namespace Text_Adventure
                     Console.WriteLine("Congrats for passing Level " + DoorsEntered + " " + LevelsLeft + " Rooms left to go");
                     DoorsEntered = DoorsEntered + 1;
                     Win();
+                    ReadyCheck();
                 }
                 else
                 {
                     Death();
                 }
+            }
+            else if (Tokens == 0)
+            {
+                Console.WriteLine("You are out of tokens, try again");
+                DoorOpenCheck();
             }
             else
             {
@@ -297,7 +305,6 @@ namespace Text_Adventure
             Door.RandomDoor();
             Doors();
             DoorOpenCheck();
-            ReadyCheck();
             Console.Clear();
         }
     }
